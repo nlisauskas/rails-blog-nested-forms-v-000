@@ -6,5 +6,5 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :tags
 
-  validates_presence_of :name, :content, :tags_attributes[:name]
+  validates_presence_of :name, :content
 end
