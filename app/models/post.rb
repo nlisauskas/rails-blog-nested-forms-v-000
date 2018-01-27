@@ -7,4 +7,10 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :tags
 
   validates_presence_of :name, :content
+
+  def tags_attributes(tag_hash)
+    if tag_hash[:name].present?
+      Tag.find_or_create_by(tag_hash[:name])
+    end
+  end
 end
